@@ -85,7 +85,7 @@ def get_winner(player_hand, dealer_hand, deck):
         dealer_hand, deck = dealer.hit(dealer_hand, deck)
         dealer_hand_value = dealer.get_hand_value(dealer_hand)
 
-    if player_hand_value == 21:
+    if player_hand_value == 21 and len(player_hand) == 2:
         return "blackjack"
     elif player_hand_value > dealer_hand_value or dealer_hand_value > 21:
         return "player"
