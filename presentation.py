@@ -1,5 +1,5 @@
 import os
-import utils
+import dealer
 import art
 
 
@@ -24,8 +24,8 @@ def display_cards(player, cards):
         plr = "Dealer's"
 
     print(f"{plr} cards:")
-    display_output(f"---- {utils.get_card_string(cards)} ----")
-    print(f"Total: {utils.get_card_sum(cards)}\n")
+    display_output(f"---- {dealer.get_hand_string(cards)} ----")
+    print(f"Total: {dealer.get_hand_value(cards)}\n")
 
 
 def add_dashes(dash_needed):
