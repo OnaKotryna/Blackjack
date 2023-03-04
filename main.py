@@ -10,8 +10,9 @@ display_logo()
 display_card_art()
 
 input('Press enter to start')
-
+# Start game
 play()
+# Next game
 while True:
     next_game = input("Next Game? y/n\n")
     if next_game.startswith('n'):

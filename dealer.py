@@ -25,7 +25,7 @@ def get_card(deck):
 
 
 def get_values(cards):
-    """Gets hand values"""
+    """Gets hand values from hand: '7♥' to 7; 'A♠' to 11; etc.. """
     values = []
     for card in cards:
         try:
@@ -42,7 +42,7 @@ def get_values(cards):
 
 
 def get_hand_value(cards):
-    """Get hands value"""
+    """Get hands value. If hand has ace and exceeds 21, set ace to 1"""
     values = get_values(cards)
     try:
         if ACE in values and sum(values) > 21:

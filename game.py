@@ -1,7 +1,8 @@
-from presentation import display_cards, display_output, display_card, display_card_art, clear_view
+from presentation import (display_cards, display_output,
+                          display_card, display_card_art, clear_view)
 import dealer
 
-DECK = [
+DECK_OF_CARDS = [
     '1♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♣',
     '1♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♦',
     '1♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♥',
@@ -24,7 +25,7 @@ def play():
     display_cards('player', player_hand)
     display_card("dealer", dealer_hand[0])
     if dealer.get_hand_value(player_hand) < 21:
-        # check if player wants to take card
+        # check if player wants to hit or stand
         hit_or_stand(player_hand, dealer_hand, deck)
     # end game
     end(player_hand, dealer_hand, deck)
@@ -34,7 +35,7 @@ def start():
     """Initiates game: cleans view and returns dealt cards"""
     clear_view()
     display_card_art()
-    deck = DECK
+    deck = DECK_OF_CARDS.copy()
     return get_game_hands(deck)
 
 
@@ -76,12 +77,14 @@ def end(player_hand, dealer_hand, deck):
 
 
 def get_winner(player_hand, dealer_hand, deck):
+    """Finds a winner"""
     player_hand_value = dealer.get_hand_value(player_hand)
     if player_hand_value > 21:
         return "bust"
 
     dealer_hand_value = dealer.get_hand_value(dealer_hand)
-    while dealer_hand_value < 17:
+    # if dealer's hand is less than 17, hit until is >= 17
+    while dealer_hand_value <= 17:
         dealer_hand, deck = dealer.hit(dealer_hand, deck)
         dealer_hand_value = dealer.get_hand_value(dealer_hand)
 
