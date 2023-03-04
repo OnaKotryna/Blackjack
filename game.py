@@ -24,7 +24,8 @@ def play():
     player_hand, dealer_hand, deck = start()
     display_cards('player', player_hand)
     display_card("dealer", dealer_hand[0])
-    if dealer.get_hand_value(player_hand) < 21:
+    # check initial hand values
+    if dealer.get_hand_value(dealer_hand) != 21 and dealer.get_hand_value(player_hand) < 21:
         # check if player wants to hit or stand
         hit_or_stand(player_hand, dealer_hand, deck)
     # end game
@@ -88,11 +89,13 @@ def get_winner(player_hand, dealer_hand, deck):
         dealer_hand, deck = dealer.hit(dealer_hand, deck)
         dealer_hand_value = dealer.get_hand_value(dealer_hand)
 
-    if player_hand_value == 21 and len(player_hand) == 2:
+    if dealer_hand_value == 21 and len(dealer_hand) == 2:
+        return "dealer"
+    elif player_hand_value == 21:
         return "blackjack"
-    elif player_hand_value > dealer_hand_value or dealer_hand_value > 21:
-        return "player"
     elif player_hand_value == dealer_hand_value:
         return "draw"
+    elif player_hand_value > dealer_hand_value or dealer_hand_value > 21:
+        return "player"
     else:
         return "dealer"
