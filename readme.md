@@ -8,7 +8,7 @@ Here are the basic rules of blackjack:
 - Aces are worth 1 or 11, face cards (King, Queen, Jack) are worth 10, and all other cards are worth their face value.
 - At the start of the game, a player is dealt two cards face up, and the dealer is dealt one card face up and one card face down.
 - Player can choose to "hit" to receive an additional card or "stand" to keep their current hand. Player can continue to hit until they decide to stand or a hand exceeds 21, resulting in a "bust".
-- After player has completed turns, the dealer reveals their face-down card and must continue to hit until they have a total of 17 or higher.
+- When player stands, the dealer reveals their face-down card and must continue to hit until they have a total of 17 or higher.
 
 Who wins?
 
