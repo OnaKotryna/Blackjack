@@ -50,4 +50,4 @@ def display_card(player, card):
 
 def display_goodbye():
     clear_view()
-    display_output("*** bayyyyy ***")
+    print(art.goodbye)
