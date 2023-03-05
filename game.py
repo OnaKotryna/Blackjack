@@ -61,7 +61,7 @@ def hit_or_stand(player_hand, dealer_hand, deck):
             #  deals card for players
             player_hand, deck = dealer.hit(player_hand, deck)
             # check if not exceeded 21
-            if dealer.get_hand_value(player_hand) > 21:
+            if dealer.get_hand_value(player_hand) >= 21:
                 break
             display_card("player", player_hand[-1])
             display_cards('player', player_hand)
